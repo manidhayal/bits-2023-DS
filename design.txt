@@ -1,0 +1,23 @@
+Algorithm for find luckynumber path
+
+Algorithm findLuckNumberPath(treeArray, path, nodePosition, sum, luckyNum):
+	treeArraySize = size(treeArray)
+	valueOfNode = treeArray[nodePosition]
+
+	if nodePosition > treeArraySize or valueOfNode is null
+		return
+	
+	path <- path + valueOfNode + ','
+	sum <- sum + valueOfNode
+	if sum == luckyNum
+		#Print luckyNum path
+		print(path)
+		return
+
+	# Traverse left sub tree
+	findLuckNumberPath(treeArray, path, 2*nodePosition, sum, luckyNum)
+	# Traverse right sub tree
+	findLuckNumberPath(treeArray, path, 2*nodePosition+1, sum, luckyNum)
+
+	return
+
