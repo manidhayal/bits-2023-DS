@@ -16,12 +16,15 @@ tree2::lucky number
 tree3:lucky number
   
 Example:
-5,4,8,11,null,9,4,-7,2,null,null,5,1::22 1,4,3,null,null,-10,null,10,2::5 1,2,3,4,5,null,-4,1::0
+5,4,8,11,null,9,4,-7,2,null,null,5,1::22 
+1,4,3,null,null,-10,null,10,2::5 
+1,2,3,4,5,null,-4,1::0
 Note that the input/output data shown here is only for understanding and testing, the actual file used for evaluation will be different.
 
 Sample Output
 All possible paths separated by semicolon(;), please make sure the output is in the exact format shown
-5,4,11,2;5,8,9;5,8,4,5 1,4;1,3,-10,11
+5,4,11,2;5,8,9;5,8,4,5 
+1,4;1,3,-10,11
 1,3,-4
 Note that the input/output data shown here is only for understanding and testing, the actual file used for evaluation will be different.
 
