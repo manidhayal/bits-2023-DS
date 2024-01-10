@@ -123,5 +123,5 @@ print(inputTreeArray)
 print("Tree constructed")
 printTree(rootNode)
 print("Luck Paths")
-find_luck_number_path(rootNode, "", 0, 8)
+find_luck_number_path(rootNode, "", 0, 0)
 
