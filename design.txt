@@ -1,10 +1,92 @@
-Algorithm for find luckynumber path
+/*
+The input (format of tree) provided for us in file is not in perfect binary tree representation of array
+We have to parse the input and construct our own Tree before finding the lucky number
+Have used linked list to create Binary tree by parsing the given input
+*/
 
-Algorithm findLuckNumberPath(treeArray, path, nodePosition, sum, luckyNum):
-	treeArraySize = size(treeArray)
-	valueOfNode = treeArray[nodePosition]
+Algorithm createNode(value):
+	node <- new TreeNode()
+	node->value <- value
+	node->leftNode <- null
+	node->rightNode <- null
+	return node
 
-	if nodePosition > treeArraySize or valueOfNode is null
+# Time complexity O(n)
+Algorithm constructTreeList(inputTreeArray):
+	rootNode <- createNode(inputTreeArray[1])
+	leafQueue <- createQueue()
+	leafQueue.enqueue(rootNode)
+	sizeOfInputArray <- size(inputTreeArray)
+
+	for(j <- 2, j <= sizeOfInputArray, j <- j + 2)
+		leaf <- leafQueue.dequeue()
+		if leaf == null
+			return error
+
+		leftValue = inputTreeArray[j]
+		if leftValue != null
+			leaf->leftNode <- createNode(leftValue)
+			leafQueue.enqueue(leaf->leftNode)
+
+		rightValue = inputTreeArray[j+1]
+		if rightValue != null
+			leaf->rightNode <- createNode(rightValue)
+			leafQueue.enqueue(leaf->rightNode)
+
+	empty(leafQueue)
+
+	return rootNode
+
+# Time complexity O(n+v)
+# Using string path variable to print path
+Algorithm findLuckNumberPath(node, path, sum, luckyNum):
+	if node == null
+		return
+
+	valueOfNode <- node->value
+	
+	path <- path + valueOfNode + ','
+	sum <- sum + valueOfNode
+	if sum == luckyNum
+		#Print luckyNum path
+		print(path)
+
+	# Traverse left sub tree
+	findLuckNumberPath(node->leftNode, path, sum, luckyNum)
+	# Traverse right sub tree
+	findLuckNumberPath(node->rightNode, path, sum, luckyNum)
+
+	return
+
+# Time complexity O((n+v).n)
+# Using Stack to store Path
+Algorithm findLuckNumberPath(node, stack, sum, luckyNum):
+    if node == null
+		return
+    
+    valueOfNode <- node->value
+    stack.push(valueOfNode)
+    sum <- sum + valueOfNode
+    
+    if sum == luckyNum
+        # Print luckyNum path
+        print(stack)
+
+    # Traverse left sub tree
+	findLuckNumberPath(node->leftNode, stack, sum, luckyNum)
+	# Traverse right sub tree
+	findLuckNumberPath(node->rightNode, stack, sum, luckyNum)
+
+    stack.pop()
+
+    return
+
+# To find lucknumber in case of array represntation of binary tree
+Algorithm findLuckNumberPathUsingArray(treeArray, path, nodePosition, sum, luckyNum):
+	treeArraySize <- size(treeArray)
+	valueOfNode <- treeArray[nodePosition]
+
+	if nodePosition > treeArraySize or valueOfNode == null
 		return
 	
 	path <- path + valueOfNode + ','
@@ -15,9 +97,9 @@ Algorithm findLuckNumberPath(treeArray, path, nodePosition, sum, luckyNum):
 		return
 
 	# Traverse left sub tree
-	findLuckNumberPath(treeArray, path, 2*nodePosition, sum, luckyNum)
+	findLuckNumberPathUsingArray(treeArray, path, 2*nodePosition, sum, luckyNum)
 	# Traverse right sub tree
-	findLuckNumberPath(treeArray, path, 2*nodePosition+1, sum, luckyNum)
+	findLuckNumberPathUsingArray(treeArray, path, 2*nodePosition+1, sum, luckyNum)
 
 	return
 
