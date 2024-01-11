@@ -1,60 +1,60 @@
 class TreeNode:
     def __init__(self, value):
         self.value = value
-        self.leftNode = None
-        self.rightNode = None
+        self.left_node = None
+        self.right_node = None
 
-def createNode(value):
+def create_node(value):
     return TreeNode(value) if value is not None else None
 
-def constructTreeList(inputTreeArray):
-    sizeOfInputArray = len(inputTreeArray)
+def construct_tree_list(input_tree_array):
+    size_of_input_array = len(input_tree_array)
     
-    if sizeOfInputArray == 0 or inputTreeArray[0] is None:
+    if size_of_input_array == 0 or input_tree_array[0] is None:
         return None  # Empty or invalid input
     
-    rootNode = createNode(inputTreeArray[0])
-    leafQueue = [rootNode]
+    root_node = create_node(input_tree_array[0])
+    leaf_queue = [root_node]
 
     j = 1
-    while j < sizeOfInputArray:
-        leaf = leafQueue.pop(0)
+    while j < size_of_input_array:
+        leaf = leaf_queue.pop(0)
         
-        leftValue = inputTreeArray[j] if j < sizeOfInputArray else None
+        left_value = input_tree_array[j] if j < size_of_input_array else None
         j += 1
 
-        if leftValue is not None:
-            leaf.leftNode = createNode(leftValue)
-            leafQueue.append(leaf.leftNode)
+        if left_value is not None:
+            leaf.left_node = create_node(left_value)
+            leaf_queue.append(leaf.left_node)
 
-        rightValue = inputTreeArray[j] if j < sizeOfInputArray else None
+        right_value = input_tree_array[j] if j < size_of_input_array else None
         j += 1
-        if rightValue is not None:
-            leaf.rightNode = createNode(rightValue)
-            leafQueue.append(leaf.rightNode)
+        if right_value is not None:
+            leaf.right_node = create_node(right_value)
+            leaf_queue.append(leaf.right_node)
 
-    return rootNode
+    return root_node
 
-def printTree(rootNode):
-    if not rootNode:
+def print_tree(root_node):
+    if not root_node:
         return
 
-    queue = [rootNode]
+    queue = [root_node]
 
     while queue:
-        currentLevel = len(queue)
-        for i in range(currentLevel):
+        current_level = len(queue)
+        for i in range(current_level):
             node = queue.pop(0)
             if node:
                 print(node.value, end=' ')
-                queue.append(node.leftNode)
-                queue.append(node.rightNode)
+                queue.append(node.left_node)
+                queue.append(node.right_node)
             else:
                 print('null', end=' ')
         
         print()  # Move to the next level
 
-def find_luck_number_path(node, path, sum, lucky_num):
+def find_lucky_number(node, path, sum, lucky_num):
     if not node:
         return
 
@@ -68,60 +68,38 @@ def find_luck_number_path(node, path, sum, lucky_num):
         print(path[:-1])  # Remove the trailing comma
 
     # Traverse left sub tree
-    find_luck_number_path(node.leftNode, path, sum, lucky_num)
+    find_lucky_number(node.left_node, path, sum, lucky_num)
     # Traverse right sub tree
-    find_luck_number_path(node.rightNode, path, sum, lucky_num)
-
-    return
-
-def find_luck_number_path_by_stack(node, stack, sum, lucky_num):
-    if not node:
-        return
-
-    value_of_node = node.value
-    stack.append(value_of_node)
-    sum += value_of_node
-
-    if sum == lucky_num:
-        # Print the specific path that equals the lucky_num
-        print(stack)
-
-    # Traverse left sub tree
-    find_luck_number_path_by_stack(node.leftNode, stack, sum, lucky_num)
-    # Traverse right sub tree
-    find_luck_number_path_by_stack(node.rightNode, stack, sum, lucky_num)
-
-    stack.pop()
+    find_lucky_number(node.right_node, path, sum, lucky_num)
 
     return
 
 # Example usage:
-inputTreeArray = [5, 4, 8, 11, None, 9, 4, -7, 2, None, None, 5, 1]
-rootNode = constructTreeList(inputTreeArray)
+input_tree_array = [5, 4, 8, 11, None, 9, 4, -7, 2, None, None, 5, 1]
+root_node = construct_tree_list(input_tree_array)
 print("Input:")
-print(inputTreeArray)
+print(input_tree_array)
 print("Tree constructed")
-printTree(rootNode)
-print("Luck Paths")
-find_luck_number_path_by_stack(rootNode, [], 0, 22)
+print_tree(root_node)
+print("Lucky Paths")
+find_lucky_number(root_node, "", 0, 22)
 print("")
 
-inputTreeArray = [1,4,3,None,None,-10,None,11,2]
-rootNode = constructTreeList(inputTreeArray)
+input_tree_array = [1, 4, 3, None, None, -10, None, 11, 2]
+root_node = construct_tree_list(input_tree_array)
 print("Input:")
-print(inputTreeArray)
+print(input_tree_array)
 print("Tree constructed")
-printTree(rootNode)
-print("Luck Paths")
-find_luck_number_path(rootNode, "", 0, 5)
+print_tree(root_node)
+print("Lucky Paths")
+find_lucky_number(root_node, "", 0, 5)
 print("")
 
-inputTreeArray = [1,2,3,4,5,None,-4,1]
-rootNode = constructTreeList(inputTreeArray)
+input_tree_array = [1, 2, 3, 4, 5, None, -4, 1]
+root_node = construct_tree_list(input_tree_array)
 print("Input:")
-print(inputTreeArray)
+print(input_tree_array)
 print("Tree constructed")
-printTree(rootNode)
-print("Luck Paths")
-find_luck_number_path(rootNode, "", 0, 0)
-
+print_tree(root_node)
+print("Lucky Paths")
+find_lucky_number(root_node, "", 0, 0)
