@@ -4,6 +4,10 @@ class TreeNode:
         self.left_node = None
         self.right_node = None
 
+    def is_leaf(self):
+        return not self.left_node and not self.right_node
+
+
 def create_node(value):
     return TreeNode(value) if value is not None else None
 
@@ -63,7 +67,7 @@ def find_lucky_number(node, path, sum, lucky_num):
     path += str(value_of_node) + ','
     sum += value_of_node
 
-    if sum == lucky_num:
+    if sum == lucky_num and node.is_leaf():
         # Print lucky_num path
         print(path[:-1])  # Remove the trailing comma
 
