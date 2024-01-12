@@ -88,7 +88,7 @@ def find_my_paths(node, path, sum, lucky_num, paths):
         : node -> Tree Object.
         : sum -> int
         : lucky_num -> int
-        : path -> list 
+        : path -> string 
             This is current path of the forest which sum may or may not be luck_number.
         : paths -> list
             This list hold all the path whose sum is equals to lucky_number.
