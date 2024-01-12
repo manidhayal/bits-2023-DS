@@ -1,28 +1,47 @@
+INPUT_FILE = "inputPS10.txt"
+OUTPUT_FILE = "outputPS10.txt"
+
 class TreeNode:
+    """A tree node class for a binary tree"""
     def __init__(self, value):
         self.value = value
         self.left_node = None
         self.right_node = None
 
     def is_leaf(self):
+        """ This method checks if the given TreeNode is leaf node or not.
+            A TreeNode whose left child is None and right child is also None."""
         return not self.left_node and not self.right_node
 
 def create_node(value):
+    """ This builder method will create Node.
+    params
+        : value -> int
+    return
+        : TreeNode -> TreeNode Object
+    """
     return TreeNode(value) if value is not None else None
 
 def construct_tree_list(input_tree_array):
+    """ This Method will build Tree out of the list of numbers provided
+    params
+        : input_tree_array -> list
+    Return
+        : root_node -> Tree Object
+    """
     size_of_input_array = len(input_tree_array)
-    
+
     if size_of_input_array == 0 or input_tree_array[0] is None:
         return None  # Empty or invalid input
-    
+
+    # This will hold the root element at each iteration so that left and right child can inserted which will be of constant time.
     root_node = create_node(input_tree_array[0])
     leaf_queue = [root_node]
 
     j = 1
     while j < size_of_input_array:
         leaf = leaf_queue.pop(0)
-        
+
         left_value = input_tree_array[j] if j < size_of_input_array else None
         j += 1
 
@@ -39,6 +58,10 @@ def construct_tree_list(input_tree_array):
     return root_node
 
 def print_tree(root_node):
+    """ Print the paths on the Tree for Left and Right Childs.
+    params
+        : root_node -> Tree object.
+    """
     if not root_node:
         return
 
@@ -54,10 +77,22 @@ def print_tree(root_node):
                 queue.append(node.right_node)
             else:
                 print('null', end=' ')
-        
+
         print()  # Move to the next level
 
 def find_my_paths(node, path, sum, lucky_num, paths):
+    """ This method traverse all the paths from root to leaf nodes of the forest object and does sum
+        of the numbers that it come across and returns if the sum matches with luck_number.
+
+    params
+        : node -> Tree Object.
+        : sum -> int
+        : lucky_num -> int
+        : path -> list 
+            This is current path of the forest which sum may or may not be luck_number.
+        : paths -> list
+            This list hold all the path whose sum is equals to lucky_number.
+    """
     if not node:
         return
 
@@ -68,7 +103,7 @@ def find_my_paths(node, path, sum, lucky_num, paths):
 
     if sum == lucky_num and node.is_leaf():
         paths.append(path[:-1]) # Remove the trailing comma
-        # print(path[:-1])  
+        # print(path[:-1])
 
     # Traverse left sub tree
     find_my_paths(node.left_node, path, sum, lucky_num, paths)
@@ -102,10 +137,11 @@ def parse_input_line(line):
 def write_to_file(file_path, data):
     with open(file_path, 'w') as file:
         for line in data:
-            file.write(line + '\n')
+            file.write(line)
 
-def main():
-    with open("inputPS10.txt", "r") as file:
+# Driver code
+if __name__ == "__main__":
+    with open(INPUT_FILE, "r") as file:
         content = file.read().splitlines()
 
     output_data = []
@@ -113,54 +149,8 @@ def main():
         input_tree_array, lucky_num = parse_input_line(line)
         if input_tree_array is not None and lucky_num is not None:
             root_node = construct_tree_list(input_tree_array)
-            # print("Input:")
-            # print(input_tree_array)
-            # print("Tree constructed")
-            # print_tree(root_node)
-            # print("Lucky Paths")
             paths = []
             find_my_paths(root_node, "", 0, lucky_num, paths)
-            # print("")
             output_data.append(";".join(paths))
 
-    write_to_file("outputPS10.txt", output_data)
-
-if __name__ == "__main__":
-    main()
-
-
-# def find_my_paths_iterative(node, lucky_num):
-#     if not node:
-#         return
-
-#     to_visit_nodes = [node]
-    
-#     sum = 0
-#     path = []
-#     while to_visit_nodes:
-#         n = to_visit_nodes.pop()
-#         path.append(n)
-#         sum += n.value
-
-#         if sum == lucky_num and n.is_leaf():
-#             # Print lucky_num path
-#             values_as_strings = [str(node.value) for node in path]
-#             print(",".join(values_as_strings))
-#             sum -= n.value
-#             path.pop()
-
-#         if n.is_leaf() and to_visit_nodes:
-#             next_n = to_visit_nodes[-1]
-#             while path:
-#                 p = path[-1]
-#                 if p.right_node == next_n or p.left_node == next_n:
-#                     break
-#                 sum -= p.value
-#                 path.pop()
-#         else:
-#             if n.right_node:
-#                 to_visit_nodes.append(n.right_node)
-#             if n.left_node:
-#                 to_visit_nodes.append(n.left_node)
-
-#     return
+    write_to_file(OUTPUT_FILE, output_data)
