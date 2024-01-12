@@ -57,28 +57,6 @@ def construct_tree_list(input_tree_array):
 
     return root_node
 
-def print_tree(root_node):
-    """ Print the paths on the Tree for Left and Right Childs.
-    params
-        : root_node -> Tree object.
-    """
-    if not root_node:
-        return
-
-    queue = [root_node]
-
-    while queue:
-        current_level = len(queue)
-        for i in range(current_level):
-            node = queue.pop(0)
-            if node:
-                print(node.value, end=' ')
-                queue.append(node.left_node)
-                queue.append(node.right_node)
-            else:
-                print('null', end=' ')
-
-        print()  # Move to the next level
 
 def find_my_paths(node, path, sum, lucky_num, paths):
     """ This method traverse all the paths from root to leaf nodes of the forest object and does sum
@@ -110,12 +88,13 @@ def find_my_paths(node, path, sum, lucky_num, paths):
     # Traverse right sub tree
     find_my_paths(node.right_node, path, sum, lucky_num, paths)
 
-    return
 
 def convert_value(value):
     try:
         return int(value) if value != "null" else None
     except ValueError:
+        return None
+    except Exception as ex:
         return None
 
 def parse_input_line(line):
