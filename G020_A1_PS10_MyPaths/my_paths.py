@@ -137,7 +137,7 @@ def parse_input_line(line):
 def write_to_file(file_path, data):
     with open(file_path, 'w') as file:
         for line in data:
-            file.write(line)
+            file.write(line + '\n')
 
 # Driver code
 if __name__ == "__main__":
