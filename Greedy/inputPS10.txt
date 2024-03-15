@@ -1,0 +1,18 @@
+Products: A / B / C / D / E / F
+Staging: 20 / 30 / 45 / 60 / 20 / 10
+Photo: 30 / 30 / 15 / 20 / 40 / 60
+Products: A / B / C / D / E / F
+Staging: 10 / 20 / 35 / 40 / 50 / 60
+Photo: 10 / 30 / 25 / 30 / 20 / 70
+Products: A / B / C / D / E / F
+Staging: 10 / 30 / 45 / 60 / 20 / 10
+Photo: 10 / 70 / 65 / 70 / 40 / 60
+Products: A / B / C / D / E / F
+Staging: 100 / 300 / 45 / 60 / 200 / 10
+Photo: 10 / 70 / 65 / 70 / 40 / 60
+Products: A / B / C / D / E / F
+Staging: 10 / 25 / 4 / 600 / 200 / 10
+Photo: 10 / 66 / 61 / 1000 / 40 / 60
+Products: A / B / C / E / F
+Staging: 10 / 25 / 4 / 200 / 10
+Photo: 10 / 66 / 61 / 40 / 60
