@@ -32,17 +32,36 @@ def optimize_photoshoot(products, staging_times, photoshoot_times):
 
     return sorted_products, total_time, idle_time
 
+def validate_inputs(products, staging_times, photoshoot_times):
+    import pdb; pdb.set_trace()
+    if not (len(products) == len(photoshoot_times) == len(staging_times)):
+        raise ValueError('MisMatch Values Found.')
+    staging_times_res = list(filter(lambda x: x < 0, staging_times))
+    photoshoot_times_res = list(filter(lambda x: x < 0, photoshoot_times))
+    if any(staging_times_res) or any(photoshoot_times_res):
+        raise ValueError('Incorrect values.')
+    return True
+
 
 def read_input(file_name):
     inputs = []
     with open(file_name, 'r') as file:
         lines = file.readlines()
         for i in range(0, len(lines), 3):
-            products = lines[i].split(':')[1].strip().split(' / ')
-            staging_times = list(map(int, lines[i + 1].split(':')[1].strip().split(' / ')))
-            photoshoot_times = list(map(int, lines[i + 2].split(':')[1].strip().split(' / ')))
+            try:
+                products = lines[i].split(':')[1].strip().split(' / ')
+                staging_times = list(map(int, lines[i + 1].split(':')[1].strip().split(' / ')))
+                photoshoot_times = list(map(int, lines[i + 2].split(':')[1].strip().split(' / ')))
+            except Exception as ex:
+                raise ex
+        try:
+            res = validate_inputs(products, staging_times, photoshoot_times)
             inputs.append((products, staging_times, photoshoot_times))
-    return inputs
+            return inputs
+        except ValueError as ve:
+            raise ve
+
+        return
 
 
 def write_output(file_name, product_sequence, total_time, idle_time):
