@@ -32,8 +32,16 @@ def optimize_photoshoot(products, staging_times, photoshoot_times):
 
     return sorted_products, total_time, idle_time
 
+
 def validate_inputs(products, staging_times, photoshoot_times):
-    import pdb; pdb.set_trace()
+    """
+    Args:-
+        products: list
+        staging_times: list
+        photoshoot_times: list
+    Returns:-
+        Exception:- ValueError
+    """
     if not (len(products) == len(photoshoot_times) == len(staging_times)):
         raise ValueError('MisMatch Values Found.')
     staging_times_res = list(filter(lambda x: x < 0, staging_times))
