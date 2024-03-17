@@ -68,8 +68,6 @@ def read_input(file_name):
                 print(ve)
             except Exception as ex:
                 print(ex)
-            except Exception as ex:
-                pass
     return inputs
 
 
