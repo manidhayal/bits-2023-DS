@@ -55,3 +55,6 @@ Photo: 10 / 66 / 61 / 1000 / 40 / 60
 Products: A / B / C / E / F
 Staging: 10 / 25 / 4 / 200 / 10
 Photo: 10 / 66 / 61 / 40 / 60
+Products: A / B / C
+Staging: 10 /  / 15
+Photo: 20 / 10 / 5
