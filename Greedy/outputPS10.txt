@@ -2,6 +2,46 @@ Product Sequence: F, E, A, B, C, D
 Total time to complete photoshoot: 205 minutes
 Idle time for Gopal: 10 minutes
 
+Product Sequence: A, B, C
+Total time to complete photoshoot: 50 minutes
+Idle time for Gopal: 15 minutes
+
+Product Sequence: E, F, D
+Total time to complete photoshoot: 85 minutes
+Idle time for Gopal: 55 minutes
+
+Product Sequence: G, I, H
+Total time to complete photoshoot: 80 minutes
+Idle time for Gopal: 5 minutes
+
+Product Sequence: N, Q, M, R, K, S, J, L, O, P
+Total time to complete photoshoot: 128 minutes
+Idle time for Gopal: 5 minutes
+
+Product Sequence: A, B, C
+Total time to complete photoshoot: 45 minutes
+Idle time for Gopal: 0 minutes
+
+Product Sequence: D, E, F
+Total time to complete photoshoot: 45 minutes
+Idle time for Gopal: 45 minutes
+
+Product Sequence: A
+Total time to complete photoshoot: 30 minutes
+Idle time for Gopal: 10 minutes
+
+Product Sequence: E, H, D, I, B, J, K, N, Q, R, S, T, O, A, L, M, C, F, G, P
+Total time to complete photoshoot: 215 minutes
+Idle time for Gopal: 14 minutes
+
+Product Sequence: A, B, C, D, E
+Total time to complete photoshoot: 60 minutes
+Idle time for Gopal: 10 minutes
+
+Product Sequence: A, B, C
+Total time to complete photoshoot: 45 minutes
+Idle time for Gopal: 0 minutes
+
 Product Sequence: B, F, A, C, D, E
 Total time to complete photoshoot: 235 minutes
 Idle time for Gopal: 50 minutes
@@ -21,8 +61,4 @@ Idle time for Gopal: 600 minutes
 Product Sequence: C, F, B, A, E
 Total time to complete photoshoot: 289 minutes
 Idle time for Gopal: 52 minutes
-
-Product Sequence: A, B, C
-Total time to complete photoshoot: 45 minutes
-Idle time for Gopal: 0 minutes
 

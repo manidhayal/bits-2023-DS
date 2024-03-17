@@ -1,6 +1,45 @@
 Products: A / B / C / D / E / F
 Staging: 20 / 30 / 45 / 60 / 20 / 10
 Photo: 30 / 30 / 15 / 20 / 40 / 60
+Products: A / B / C
+Staging: 10 / 20 / 15
+Photo: 20 / 10 / 5
+Products: D / E / F
+Staging: 30 / 25 / 20
+Photo: 10 / 15 / 5
+Products: G / H / I
+Staging: 5 / 10 / 15
+Photo: 25 / 20 / 30
+Products: J / K / L / M / N / O / P / Q / R / S
+Staging: 12 / 8 / 15 / 10 / 5 / 18 / 20 / 6 / 9 / 11
+Photo: 10 / 12 / 8 / 15 / 20 / 7 / 6 / 18 / 14 / 13
+Products: A / B / C
+Staging: 0 / 0 / 0
+Photo: 20 / 15 / 10
+Products: D / E / F
+Staging: 10 / 15 / 20
+Photo: 0 / 0 / 0
+Products: G / H / I
+Staging: -5 / 10 / 15
+Photo: 20 / -10 / 5
+Products: A
+Staging: 10
+Photo: 20
+Products: A / B / C / D / E / F / G / H / I / J / K / L / M / N / O / P / Q / R / S / T
+Staging: 12 / 8 / 15 / 10 / 5 / 18 / 20 / 6 / 9 / 11 / 7 / 14 / 13 / 16 / 17 / 19 / 4 / 3 / 2 / 1
+Photo: 10 / 12 / 8 / 15 / 20 / 7 / 6 / 18 / 14 / 13 / 9 / 11 / 10 / 17 / 16 / 5 / 4 / 3 / 2 / 1
+Products: A / B / C / D / E
+Staging: 10 / 10 / 10 / 10 / 10
+Photo: 10 / 10 / 10 / 10 / 10
+Products: A / B / C
+Staging: 0 / 0 / 0
+Photo: 20 / 15 / 10
+Products: A / B / C
+Staging: -10 / 10 / 15
+Photo: 20 / -10 / 5
+Products: A / B / C
+Staging: -10 / 10 / 15
+Photo: 20 / -10 /
 Products: A / B / C / D / E / F
 Staging: 10 / 20 / 35 / 40 / 50 / 60
 Photo: 10 / 30 / 25 / 30 / 20 / 70
@@ -16,12 +55,3 @@ Photo: 10 / 66 / 61 / 1000 / 40 / 60
 Products: A / B / C / E / F
 Staging: 10 / 25 / 4 / 200 / 10
 Photo: 10 / 66 / 61 / 40 / 60
-Products: A / B / C
-Staging: 0 / 0 / 0
-Photo: 20 / 15 / 10
-Products: A / B / C
-Staging: -10 / 10 / 15
-Photo: 20 / -10 / 5
-Products: A / B / C
-Staging: -10 / 10 / 15
-Photo: 20 / -10 /

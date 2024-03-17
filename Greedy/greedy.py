@@ -1,3 +1,5 @@
+import os
+
 def optimize_photoshoot(products, staging_times, photoshoot_times):
     n = len(products)
     
@@ -82,6 +84,8 @@ def write_output(file_name, product_sequence, total_time, idle_time):
 def main():
     input_file = "inputPS10.txt"
     output_file = "outputPS10.txt"
+    if os.path.exists(output_file):
+        os.remove(output_file)
 
     # Read inputs from file
     inputs = read_input(input_file)
