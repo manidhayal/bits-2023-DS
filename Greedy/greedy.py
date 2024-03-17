@@ -60,18 +60,15 @@ def read_input(file_name):
                 products = lines[i].split(':')[1].strip().split(' / ')
                 staging_times = list(map(int, lines[i + 1].split(':')[1].strip().split(' / ')))
                 photoshoot_times = list(map(int, lines[i + 2].split(':')[1].strip().split(' / ')))
+                res = validate_inputs(products, staging_times, photoshoot_times)
+                inputs.append((products, staging_times, photoshoot_times))
+            except ValueError as ve:
+                print(ve)
+            except Exception as ex:
+                print(ex)
             except Exception as ex:
                 pass
-        try:
-            res = validate_inputs(products, staging_times, photoshoot_times)
-            inputs.append((products, staging_times, photoshoot_times))
-            return inputs
-        except ValueError as ve:
-            print(ve)
-        except Exception as ex:
-            print(ex)
-
-        return
+    return inputs
 
 
 def write_output(file_name, product_sequence, total_time, idle_time):
@@ -90,14 +87,13 @@ def main():
     inputs = read_input(input_file)
 
     # Process each set of inputs and write corresponding output
-    try:
-        for idx, (products, staging_times, photoshoot_times) in enumerate(inputs):
+    for idx, (products, staging_times, photoshoot_times) in enumerate(inputs):
+        try:
             sorted_products, total_time, idle_time = optimize_photoshoot(products, staging_times, photoshoot_times)
             product_sequence = [product[0] for product in sorted_products]
             write_output(output_file, product_sequence, total_time, idle_time)
-    except Exception as ex:
-        pass
-
+        except Exception as ex:
+            pass
 
 if __name__ == "__main__":
     main()
